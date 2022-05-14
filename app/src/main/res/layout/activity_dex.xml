@@ -10,27 +10,43 @@
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="282dp"
         android:layout_height="41dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="65dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Atrapa un pokemon"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="39dp" />
+        app:layout_constraintBottom_toTopOf="@+id/look"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/look"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="82dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="67dp"
         android:text="Ver"
-        tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="80dp" />
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName3"
+        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginBottom="62dp"
         android:text="Atrapar"
-        tools:layout_editor_absoluteX="242dp"
-        tools:layout_editor_absoluteY="80dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/look"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView2"
