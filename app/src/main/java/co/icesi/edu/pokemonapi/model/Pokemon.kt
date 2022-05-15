@@ -14,3 +14,4 @@ data class Pokemon(
     val type: String="",
     val date: Long=0
 ):Serializable
+
