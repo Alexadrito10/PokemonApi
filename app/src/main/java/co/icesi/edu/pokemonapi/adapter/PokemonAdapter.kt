@@ -66,6 +66,4 @@ class PokemonAdapter : RecyclerView.Adapter<PokemonViewHolder>() {
     fun setOnClickListener(listener: ClickPokemon){
         lis2 = listener
     }
-
-
 }
