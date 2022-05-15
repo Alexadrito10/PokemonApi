@@ -16,7 +16,7 @@ import kotlin.collections.ArrayList
 class PokemonAdapter : RecyclerView.Adapter<PokemonViewHolder>() {
     //
     private var pokemones= ArrayList<Pokemon>()
-    private lateinit var user: User
+    lateinit var user: User
     private lateinit var lis2 : ClickPokemon
 
     //Override methods
@@ -34,6 +34,7 @@ class PokemonAdapter : RecyclerView.Adapter<PokemonViewHolder>() {
 
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
         val poke = pokemones[position]
+        holder.user = user
         holder.pokemon= poke
         Glide.with(holder.pokemonImage.context).load(poke.image).into(holder.pokemonImage)
         //Picasso.get().load(poke.image).into(holder.pokemonImage)

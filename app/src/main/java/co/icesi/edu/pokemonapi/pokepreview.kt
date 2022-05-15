@@ -27,6 +27,8 @@ class pokepreview : AppCompatActivity() {
 
         user= intent.extras?.get("user") as User
         pokemon = (intent.extras?.get("pokemon") as Pokemon?)!!
+        
+        // TOCARIA CAMBIAR ESTO
 
         binding.previewDefenseNum.text= pokemon?.defense.toString()
         binding.previewAtkNum.text= pokemon?.attack.toString()
