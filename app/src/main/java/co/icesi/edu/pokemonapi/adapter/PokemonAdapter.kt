@@ -14,6 +14,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class PokemonAdapter : RecyclerView.Adapter<PokemonViewHolder>() {
+    //
     private var pokemones= ArrayList<Pokemon>()
     private lateinit var user: User
     private lateinit var lis2 : ClickPokemon
