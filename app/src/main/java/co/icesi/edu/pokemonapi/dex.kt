@@ -11,6 +11,8 @@ import co.icesi.edu.pokemonapi.serviceManagement.Constant
 import co.icesi.edu.pokemonapi.serviceManagement.HTTPSWebUtilDomi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import com.google.gson.Gson
+import org.json.JSONObject
 
 class dex : AppCompatActivity() {
     private lateinit var binding: ActivityDexBinding
@@ -41,11 +43,22 @@ class dex : AppCompatActivity() {
         binding.catchPokemon.setOnClickListener {
           var nameP= binding.catchPokemon.text.toString()
           if(nameP!=""){
+
               nameP= nameP.trim()
+
               lifecycleScope.launch(Dispatchers.IO){
                   try{
                       nameP= nameP.trim()
-                      val response = HTTPSWebUtilDomi().GETRequest("${Constant.POKE_API_URL}api/v2/pokemon/${nameP}")
+                      val response = HTTPSWebUtilDomi().GETRequest("${Constant.POKE_API_URL}/pokemon${nameP}")
+                      val connectionJson: JSONObject= Gson().fromJson(response, JSONObject::class.java)
+
+                      nameP= nameP.replaceFirstChar { it.uppercaseChar() }
+                      val stats= connectionJson["stats"].toString()
+                      val types= connectionJson["types"].toString()
+                      val images= connectionJson["sprites"].toString()
+
+                      //var newPoke= create()
+
                   }catch(e: Exception){
 
                   }

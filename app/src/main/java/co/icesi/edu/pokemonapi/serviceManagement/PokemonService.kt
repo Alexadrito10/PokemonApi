@@ -1,13 +1,11 @@
 package co.icesi.edu.pokemonapi.serviceManagement
 
-import co.icesi.edu.pokemonapi.model.Pokemon
-import com.google.android.gms.common.api.Response
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
 
-interface PokemonService {
-    //@GET("api/v2/pokemon/{namePokemon}")
-    //suspend fun getPokemonByName(@Path("namePokemon")) : Response<Pokemon>
+object PokemonService {
+    private val retrofit: Retrofit = Retrofit.Builder().baseUrl("https://pokeapi.co")
+        .addConverterFactory(MoshiConverterFactory.create()).build()
 
-
+    val api: PokemonAPI = retrofit.create(PokemonAPI:: class.java)
 }
