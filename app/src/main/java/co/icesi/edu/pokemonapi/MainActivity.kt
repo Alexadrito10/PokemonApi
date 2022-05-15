@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         username= username.trim()
 
         if(username!= ""){
+            //Creando el intent para los dos casos e ir a la pagina donde se atrapa el pokemon
             val intent = Intent(this, dex::class.java).apply{
                 putExtra("username", username)
             }
