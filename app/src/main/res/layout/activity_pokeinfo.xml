@@ -39,7 +39,7 @@
         app:srcCompat="@drawable/xiaopfp" />
 
     <TextView
-        android:id="@+id/pokeNameWatch"
+        android:id="@+id/seePokeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="135dp"
@@ -73,7 +73,7 @@
         android:text="Defensa"
         app:layout_constraintEnd_toStartOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pokeNameWatch" />
+        app:layout_constraintTop_toBottomOf="@+id/seePokeName" />
 
     <TextView
         android:id="@+id/textView4"
@@ -85,7 +85,7 @@
         android:text="Ataque"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/pokeNameWatch" />
+        app:layout_constraintTop_toBottomOf="@+id/seePokeName" />
 
     <TextView
         android:id="@+id/seeDefenseNum"
@@ -109,7 +109,7 @@
         app:layout_constraintTop_toBottomOf="@+id/seeDefenseNum" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/previewSpeedNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
@@ -121,13 +121,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
-        android:id="@+id/seeLifeNum"
+        android:id="@+id/previewLifeNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="140dp"
         android:layout_marginTop="20dp"
         android:text="TextView"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintStart_toEndOf="@+id/previewSpeedNum"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 </androidx.constraintlayout.widget.ConstraintLayout>
