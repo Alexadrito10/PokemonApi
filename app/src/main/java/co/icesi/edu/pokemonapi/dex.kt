@@ -47,7 +47,7 @@ class dex : AppCompatActivity() {
                       nameP= nameP.trim()
                       val response = HTTPSWebUtilDomi().GETRequest("${Constant.POKE_API_URL}api/v2/pokemon/${nameP}")
                   }catch(e: Exception){
-                      
+
                   }
               }
 
