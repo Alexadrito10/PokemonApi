@@ -7,6 +7,7 @@ import co.icesi.edu.pokemonapi.PokemonViewHolder
 import co.icesi.edu.pokemonapi.R
 import co.icesi.edu.pokemonapi.model.Pokemon
 import co.icesi.edu.pokemonapi.model.User
+import com.bumptech.glide.Glide
 import com.squareup.picasso.Picasso
 import java.text.SimpleDateFormat
 import java.util.*
@@ -33,7 +34,8 @@ class PokemonAdapter : RecyclerView.Adapter<PokemonViewHolder>() {
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
         val poke = pokemones[position]
         holder.pokemon= poke
-        Picasso.get().load(poke.image).into(holder.pokemonImage)
+        Glide.with(holder.pokemonImage.context).load(poke.image).into(holder.pokemonImage)
+        //Picasso.get().load(poke.image).into(holder.pokemonImage)
         holder.pokemonName.text= poke.name
         holder.pokemonDate.text= SimpleDateFormat("MMM dd, yy 'at' HH:mm")
             .format(Date(poke.date))
