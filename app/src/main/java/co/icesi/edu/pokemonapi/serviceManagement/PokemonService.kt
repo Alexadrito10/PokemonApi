@@ -6,8 +6,8 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface PokemonService {
-    @GET("api/v2/pokemon/{namePokemon}")
-    suspend fun getPokemonByName(@Path("namePokemon")) : Response<Pokemon>
+    //@GET("api/v2/pokemon/{namePokemon}")
+    //suspend fun getPokemonByName(@Path("namePokemon")) : Response<Pokemon>
 
 
 }
