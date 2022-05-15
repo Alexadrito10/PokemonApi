@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <com.mikhaellopez.circularimageview.CircularImageView
-        android:id="@+id/imageView"
+        android:id="@+id/pokemonImage"
         android:layout_width="97dp"
         android:layout_height="99dp"
         android:layout_marginStart="5dp"
@@ -24,7 +24,7 @@
         android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.066"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/pokemonImage"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -35,7 +35,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.074"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/pokemonImage"
         app:layout_constraintTop_toBottomOf="@+id/pokemonName"
         app:layout_constraintVertical_bias="0.391" />
 </androidx.constraintlayout.widget.ConstraintLayout>
