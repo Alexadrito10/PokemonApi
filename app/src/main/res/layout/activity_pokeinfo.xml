@@ -109,7 +109,7 @@
         app:layout_constraintTop_toBottomOf="@+id/seeDefenseNum" />
 
     <TextView
-        android:id="@+id/previewSpeedNum"
+        android:id="@+id/seeSpeedNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
@@ -121,13 +121,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
-        android:id="@+id/previewLifeNum"
+        android:id="@+id/seeLifeNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="140dp"
         android:layout_marginTop="20dp"
         android:text="TextView"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/previewSpeedNum"
+        app:layout_constraintStart_toEndOf="@+id/seeSpeedNum"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 </androidx.constraintlayout.widget.ConstraintLayout>
