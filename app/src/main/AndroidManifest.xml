@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PokemonApi">
         <activity
+            android:name=".pokepreview"
+            android:exported="false" />
+        <activity
             android:name=".pokeinfo"
             android:exported="false" />
         <activity
