@@ -11,9 +11,12 @@ import androidx.navigation.Navigation
 import co.icesi.edu.pokemonapi.R
 import co.icesi.edu.pokemonapi.databinding.ActivityMainBinding
 import co.icesi.edu.pokemonapi.databinding.FragmentLoginBinding
+import co.icesi.edu.pokemonapi.model.Pokemon
 import co.icesi.edu.pokemonapi.model.User
+import co.icesi.edu.pokemonapi.serviceManagement.Session
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.gson.Gson
 
 
 class LoginFragment : Fragment() {
@@ -43,22 +46,40 @@ class LoginFragment : Fragment() {
         username= username.trim()
 
         if(username!= ""){
-            //Creando el intent para los dos casos e ir a la pagina donde se atrapa el pokemon
-//            val intent = Intent(this, dex::class.java).apply{
-//                putExtra("username", username)
-//            }
-
 
             Firebase.firestore.collection("users").whereEqualTo("username", username)
                 .get().addOnCompleteListener { task ->
 
-                    if(task.result?.size()==0){
-                        Firebase.firestore.collection("users").add(User(username))
-//                        startActivity(intent)
+                    if(task.result?.size()==0) {
+                        val collection = Firebase.firestore.collection("users")
+                        val sessionUser = collection.document()
 
-                    }else{
-//                        startActivity(intent)
+                        Session.sessionId = sessionUser.id
+                        val userCreated = User(sessionUser.id,username, emptyList())
+
+                        print("id de recien creado : "+Session.sessionId+"")
+                        sessionUser.set(userCreated)
+
+
+                        }
+
+                    else{
+                        if (task.isSuccessful){
+                            task.result.documents.forEach{
+                                val user = it.toObject(User::class.java)
+                                Session.sessionId = user!!.id
+                            }
+
+
+                            print("id de uno  prev creado: "+Session.sessionId+"---------------------------------" )
+
+
+                        }
                     }
+
+
+
+                    print("id de recien creado fin : "+Session.sessionId+"")
                     Navigation.findNavController(binding.root).navigate(R.id.action_loginFragment_to_dexFragment)
                 }
         }else{

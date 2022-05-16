@@ -46,19 +46,19 @@ class PokeInfoFragment : Fragment() {
             Log.e("pokemon",it.toString())
 
             it.apply { val defense = stats.filter {
-                    mystat -> mystat.stat.name == "defense" }[0].base_stat
-                val attack = stats.filter { mystat -> mystat.stat.name == "attack" }[0].base_stat
-                val speed = stats.filter { mystat -> mystat.stat.name == "speed" }[0].base_stat
-                val health = stats.filter { mystat -> mystat.stat.name == "hp" }[0].base_stat
+                    mystat -> mystat.stat?.name == "defense" }[0].base_stat
+                val attack = stats.filter { mystat -> mystat.stat?.name == "attack" }[0].base_stat
+                val speed = stats.filter { mystat -> mystat.stat?.name == "speed" }[0].base_stat
+                val health = stats.filter { mystat -> mystat.stat?.name == "hp" }[0].base_stat
                 val name = name
                 var type =""
                 types.forEach{
                     if (type.length != 0){
                         type += " - "
                     }
-                    type += "${it.type.name}"
+                    type += "${it.type?.name}"
                 }
-                val image = sprites.front_default
+                val image = sprites?.front_default
 
                 binding.apply {
                     seeDefenseNum.text = defense.toString()

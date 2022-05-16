@@ -3,11 +3,11 @@ package co.icesi.edu.pokemonapi.model
 import java.io.Serializable
 
 data class Pokemon(
-    val id: Int,
-    val name: String,
-    val sprites: Sprites,
-    val types: List<Type>,
-    val stats: List<Stat>,
-    val date: Long=0
+    var id: Int=0,
+    var name: String="",
+    var sprites: Sprites?=null,
+    var types: List<Type> = emptyList(),
+    var stats: List<Stat> = emptyList(),
+    var date: String=""
 ):Serializable
 

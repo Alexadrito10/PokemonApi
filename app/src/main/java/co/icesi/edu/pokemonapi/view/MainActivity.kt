@@ -9,6 +9,7 @@ import android.widget.Toast
 import co.icesi.edu.pokemonapi.R
 import co.icesi.edu.pokemonapi.databinding.ActivityMainBinding
 import co.icesi.edu.pokemonapi.model.User
+import co.icesi.edu.pokemonapi.serviceManagement.Session
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -22,6 +23,8 @@ class MainActivity : AppCompatActivity() {
 
 
         setContentView(R.layout.activity_main)
+
+        Session
 
 //        this.requestWindowFeature(Window.FEATURE_NO_TITLE)
 //        supportActionBar?.hide()
