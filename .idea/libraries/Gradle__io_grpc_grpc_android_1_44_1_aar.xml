@@ -2,9 +2,10 @@
   <library name="Gradle: io.grpc:grpc-android:1.44.1@aar">
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/87678b192d61f088348e96926818d782/transformed/grpc-android-1.44.1/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/a804619241c24a8e48ea88c4911cd6d8/transformed/grpc-android-1.44.1/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/a804619241c24a8e48ea88c4911cd6d8/transformed/grpc-android-1.44.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/a804619241c24a8e48ea88c4911cd6d8/transformed/grpc-android-1.44.1/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5edce0de58b805ceda8b6bc2fa0dbc85/transformed/grpc-android-1.44.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/5edce0de58b805ceda8b6bc2fa0dbc85/transformed/grpc-android-1.44.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5edce0de58b805ceda8b6bc2fa0dbc85/transformed/grpc-android-1.44.1/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.grpc/grpc-android/1.44.1/7f9eade0562d11317c80e0649168886fa912b02b/grpc-android-1.44.1-javadoc.jar!/" />
