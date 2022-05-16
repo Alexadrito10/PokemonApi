@@ -30,5 +30,9 @@
         <argument
             android:name="namePoke"
             app:argType="string" />
+        <argument
+            android:name="Date"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
 </navigation>

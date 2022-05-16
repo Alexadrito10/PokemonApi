@@ -1,6 +1,7 @@
 package co.icesi.edu.pokemonapi.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import co.icesi.edu.pokemonapi.R
@@ -11,16 +12,20 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class PokemonAdapter(private var pokemones:ArrayList<Pokemon>) : RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() {
-    //
+class PokemonAdapter(private var pokemones:ArrayList<Pokemon>, var onClickListener: OnClickListener) : RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() {
+    class PokemonViewHolder(var binding: PokemonrowBinding, var onClickListener: OnClickListener):RecyclerView.ViewHolder(binding.root), View.OnClickListener {
+        init{
+            itemView.setOnClickListener(this)
+        }
 
-    private lateinit var lis2 : ClickPokemon
-    class PokemonViewHolder(var binding: PokemonrowBinding):RecyclerView.ViewHolder(binding.root)
+        override fun onClick(p0: View?) {
+            onClickListener.onClick(adapterPosition)
+        }
+
+    }
     //Override methods
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
-
-
-        return PokemonViewHolder(PokemonrowBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+        return PokemonViewHolder(PokemonrowBinding.inflate(LayoutInflater.from(parent.context),parent,false), onClickListener)
     }
 
     override fun getItemCount(): Int {
@@ -32,10 +37,6 @@ class PokemonAdapter(private var pokemones:ArrayList<Pokemon>) : RecyclerView.Ad
         Glide.with(holder.binding.pokemonImage.context).load(poke.sprites?.front_default).into(holder.binding.pokemonImage)
         holder.binding.pokemonName.text= poke.name
         holder.binding.catchDate.text= poke.date
-    }
-
-    interface ClickPokemon{
-        fun onItemClick(position: Int)
     }
 
     //Implemented methods to make it functional
@@ -56,7 +57,7 @@ class PokemonAdapter(private var pokemones:ArrayList<Pokemon>) : RecyclerView.Ad
         return pokemones.get(position)
     }
 
-    fun setOnClickListener(listener: ClickPokemon){
-        lis2 = listener
+    interface OnClickListener{
+        fun onClick(position: Int)
     }
 }

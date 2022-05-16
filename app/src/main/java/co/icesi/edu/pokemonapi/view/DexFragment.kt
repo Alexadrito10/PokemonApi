@@ -20,7 +20,7 @@ import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class DexFragment : Fragment() {
+class DexFragment : Fragment(), PokemonAdapter.OnClickListener {
 
     private lateinit var binding: FragmentDexBinding
     private lateinit var viewModel: DexViewModel
@@ -45,19 +45,18 @@ class DexFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(requireActivity())[DexViewModel::class.java]
         viewModel.getPokemons()
-        adapter = PokemonAdapter(ArrayList())
+        adapter = PokemonAdapter(ArrayList(), this)
 
         listener()
         viewModel.pokemon.observe(viewLifecycleOwner) {
-            Firebase.firestore.collection("users").document(Session.sessionId).update("pokemons",FieldValue.arrayUnion(it))
+            Firebase.firestore.collection("users").document(Session.sessionId).update("pokemons",
+                FieldValue.arrayUnion(it))
             adapter.addPokemon(it)
             adapter.notifyDataSetChanged()
-
-
         }
 
         viewModel.listPokemons.observe(viewLifecycleOwner) {
-            adapter = PokemonAdapter(it)
+            adapter = PokemonAdapter(it, this)
             binding.pokeRecycler.adapter = adapter
         }
     }
@@ -65,13 +64,19 @@ class DexFragment : Fragment() {
     private fun listener() {
         binding.look.setOnClickListener {
             val namePoke = binding.choosePokemon.text.toString()
-            val action = DexFragmentDirections.actionDexFragmentToPokeInfoFragment(namePoke)
+            val action = DexFragmentDirections.actionDexFragmentToPokeInfoFragment(namePoke, null)
 
             Navigation.findNavController(binding.root).navigate(action)
         }
         binding.catchPokemon.setOnClickListener {
             viewModel.getPokemon(binding.choosePokemon.text.toString())
-
         }
+    }
+
+    override fun onClick(position: Int) {
+        val pokemon= adapter.getPokemon(position)
+        val action = DexFragmentDirections.actionDexFragmentToPokeInfoFragment(pokemon.name, pokemon.date)
+
+        Navigation.findNavController(binding.root).navigate(action)
     }
 }
