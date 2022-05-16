@@ -11,16 +11,20 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.viewModelFactory
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import co.icesi.edu.pokemonapi.R
 import co.icesi.edu.pokemonapi.databinding.FragmentPokeInfoBinding
 import co.icesi.edu.pokemonapi.model.Pokemon
 import co.icesi.edu.pokemonapi.model.User
+import co.icesi.edu.pokemonapi.serviceManagement.Session
 import co.icesi.edu.pokemonapi.viewmodel.DexViewModel
 import co.icesi.edu.pokemonapi.viewmodel.PokeInfoViewModel
 import com.bumptech.glide.Glide
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.time.LocalDateTime
 
 
 class PokeInfoFragment : Fragment() {
@@ -81,10 +85,17 @@ class PokeInfoFragment : Fragment() {
             }
 
             binding.seeCatch.setOnClickListener {
-                viewModelDexFragment.getPokemon(binding.seePokeName.text.toString())
+                val pokemon= viewModel.pokemon.value
+                pokemon?.date= LocalDateTime.now().toString()
+                Firebase.firestore.collection("users").document(Session.sessionId).update("pokemons",
+                    FieldValue.arrayUnion(pokemon))
+                Navigation.findNavController(binding.root)
+                    .navigate(R.id.action_pokeInfoFragment_to_dexFragment)
             }
 
-
+            binding.seeLiberate.setOnClickListener {
+                
+            }
         }
     }
 }

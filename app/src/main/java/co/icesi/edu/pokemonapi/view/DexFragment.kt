@@ -41,7 +41,6 @@ class DexFragment : Fragment(), PokemonAdapter.OnClickListener {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(requireActivity())[DexViewModel::class.java]
         viewModel.getPokemons()
