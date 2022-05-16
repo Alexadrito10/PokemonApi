@@ -1,10 +1,10 @@
-package co.icesi.edu.pokemonapi
+package co.icesi.edu.pokemonapi.view
 
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
+import co.icesi.edu.pokemonapi.R
 import co.icesi.edu.pokemonapi.adapter.PokemonAdapter
 import co.icesi.edu.pokemonapi.model.Pokemon
 import co.icesi.edu.pokemonapi.model.User

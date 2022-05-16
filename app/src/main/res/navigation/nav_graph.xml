@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="co.icesi.edu.pokemonapi.view.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_dexFragment"
+            app:destination="@id/dexFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dexFragment"
+        android:name="co.icesi.edu.pokemonapi.view.DexFragment"
+        android:label="fragment_dex"
+        tools:layout="@layout/fragment_dex" >
+        <action
+            android:id="@+id/action_dexFragment_to_pokeInfoFragment"
+            app:destination="@id/pokeInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pokeInfoFragment"
+        android:name="co.icesi.edu.pokemonapi.view.PokeInfoFragment"
+        android:label="fragment_poke_info"
+        tools:layout="@layout/fragment_poke_info" >
+        <argument
+            android:name="namePoke"
+            app:argType="string" />
+    </fragment>
+</navigation>

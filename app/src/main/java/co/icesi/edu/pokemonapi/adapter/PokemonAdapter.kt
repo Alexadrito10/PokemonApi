@@ -3,12 +3,11 @@ package co.icesi.edu.pokemonapi.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import co.icesi.edu.pokemonapi.PokemonViewHolder
+import co.icesi.edu.pokemonapi.view.PokemonViewHolder
 import co.icesi.edu.pokemonapi.R
 import co.icesi.edu.pokemonapi.model.Pokemon
 import co.icesi.edu.pokemonapi.model.User
 import com.bumptech.glide.Glide
-import com.squareup.picasso.Picasso
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -36,7 +35,7 @@ class PokemonAdapter : RecyclerView.Adapter<PokemonViewHolder>() {
         val poke = pokemones[position]
         holder.user = user
         holder.pokemon= poke
-        Glide.with(holder.pokemonImage.context).load(poke.image).into(holder.pokemonImage)
+        //Glide.with(holder.pokemonImage.context).load(poke.image).into(holder.pokemonImage)
         //Picasso.get().load(poke.image).into(holder.pokemonImage)
         holder.pokemonName.text= poke.name
         holder.pokemonDate.text= SimpleDateFormat("MMM dd, yy 'at' HH:mm")
