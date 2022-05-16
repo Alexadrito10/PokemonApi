@@ -92,10 +92,6 @@ class PokeInfoFragment : Fragment() {
                 Navigation.findNavController(binding.root)
                     .navigate(R.id.action_pokeInfoFragment_to_dexFragment)
             }
-
-            binding.seeLiberate.setOnClickListener {
-                
-            }
         }
     }
 }
