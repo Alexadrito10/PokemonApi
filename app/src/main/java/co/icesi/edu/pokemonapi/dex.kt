@@ -36,8 +36,8 @@ class dex : AppCompatActivity() {
         setContentView(binding.root)
         user = intent.extras?.get("user") as User
         adapter.user = user
-    }
-        /**adapter.setOnClickListener(object: PokemonAdapter.ClickPokemon{
+
+        adapter.setOnClickListener(object: PokemonAdapter.ClickPokemon{
             override fun onItemClick(position: Int) {
                 val intent= Intent(this@dex, pokepreview::class.java).apply{
                     putExtra("pokemon", adapter.getPokemon(position))
@@ -87,5 +87,5 @@ class dex : AppCompatActivity() {
 
     fun create(){
 
-    }*/
+    }
 }
